@@ -1,15 +1,17 @@
 function getUrlVars() {
-  var vars = {};
-  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-    vars[key] = value;
+  const vars = {};
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+    vars[key] = decodeURIComponent(value);
   });
   return vars;
 }
-var name = getUrlVars()["name"];
-console.log(name)
 
 
-var h1 = document.getElementById("pudim")
-// .textContent = name;
-
-console.log(h1)
+function hello() {
+  const name = getUrlVars()["name"];
+  if (name !== undefined && name !== '') {
+    document.getElementById("pudim").textContent = name
+  } else {
+    document.getElementById("pudim").textContent = 'Alguém'
+  }
+}
