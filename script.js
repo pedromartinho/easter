@@ -6,7 +6,6 @@ function getUrlVars() {
   return vars;
 }
 
-
 function hello() {
   const name = getUrlVars()["name"];
   if (name !== undefined && name !== '') {
